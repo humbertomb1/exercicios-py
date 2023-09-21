@@ -1,0 +1,22 @@
+Os código para texto:
+1. 30 = branco  
+2. 31 = vermelho
+3. 32 = verde
+4. 33 = amarelo
+5. 34 = azul
+6. 35 = magenta
+7. 36 = ciano
+8. 37 cinza
+
+
+Os textos para o fundo:
+1. 40 branco
+2. 41 = vermelho
+3. 42 = verde
+4. 43 = amarelo
+5. 44 = azul
+6. 45 = magenta
+7. 46 = ciano
+8. 47 = cinza
+
+    
