@@ -66,9 +66,7 @@ Escolha uma opção acima:
     
     #Sai do programa
     elif opcao == 5:
-        opcao = 5
-        system('clear')
-        continue
+        break
 
     #Sair ou não do programa depois de escolher uma opção
     voltar_sair = input('Deseja voltar para o menu de opções? [s/n]').lower()
@@ -82,7 +80,7 @@ Escolha uma opção acima:
     if voltar_sair == 's':
         opcao = None
     else:
-        opcao = 5
+       break
 
 
 system('clear')
