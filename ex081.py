@@ -4,6 +4,7 @@ Crie um programa que tenha uma tupla única
 com nomes de produtos e seus respectivos preços,
 na sequencia.
 No final, mostre uma listagem de preços, organizados os dados em forma tabular
+<<<<<<< HEAD
 '''
 
 tupla = iter(('Lapis', 2.50, 'Borracha', 3.00, 'Caderno', 15.00, 'Mochila', 50.00,))
@@ -11,3 +12,6 @@ tupla = iter(('Lapis', 2.50, 'Borracha', 3.00, 'Caderno', 15.00, 'Mochila', 50.0
 for items in tupla:
     preço = next(tupla)
     print(f'{items}.............: {preço:.2f}')
+=======
+'''
+>>>>>>> 1697bb79e933a69e4f690dca8c9af252bb0a42be

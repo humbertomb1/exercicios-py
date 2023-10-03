@@ -6,6 +6,7 @@ e guarde-os em uma tupla. No final, mostre:
 a) Quantas vezes apareceu o valor 9.
 b) Em que posição foi digitado o primeiro valor 3.
 c) Quais foram os primeiros pares
+<<<<<<< HEAD
 '''
 
 tupla = (int(input('Digite um número ')), int(input('Digite um número ')), int(input('Digite um número ')), int(input('Digite um número ')))
@@ -30,3 +31,6 @@ for par in tupla:
         print(par, end=" ")
 print('\n')
 
+=======
+'''
+>>>>>>> 1697bb79e933a69e4f690dca8c9af252bb0a42be
