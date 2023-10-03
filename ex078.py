@@ -7,3 +7,4 @@ b) Os últimos 4 colocados da tabela
 c) Uma lista com os times em ordem alfabética
 d) Em que posição está o oitavo colocado
 '''
+
