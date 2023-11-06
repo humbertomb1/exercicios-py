@@ -12,52 +12,42 @@ database = []
 
 while True:
 
-    data = [[]]
-
     aluno = input('Nome: ')
-    data.insert(0, aluno)
-    nota1 = float(input('Nota 1: '))
-    data[1].append(nota1)
-
-    nota2 = float(input('Nota 2: '))
-    data[1].append(nota2)
-
-    database.append(data.copy())
-
-    media = sum(data[1]) / len(data[1])
-
-    data[1].append(media)
     
-    data.clear()
+    nota1 = float(input('Nota 1: '))
+    nota2 = float(input('Nota 2: '))
+    media = nota1 + nota2 / 2
+    database.append([aluno, [nota1, nota2], media])
 
     resp = input('Quer continauar? [s/n]? ')
+    
     while resp != 's' and resp != 'n':
         resp = input("ERRO: Você não digitou nem 's' nem 'n'. Tente novamente: ")
-    if resp == 'n':
+    
+    if resp in 'n':
         break
 
 system('clear')
-print('No.\tNOME\tMÉDIA')
-print('-'*20)
-
+print(f'{"No.":<4} {"NOME":<10} {"MEDIA":>8}')
+print('-'*25)
 
 for i, c in enumerate(range(0, len(database))):
-    print(f"""{i} \t{database[i][0]} \t {database[i][1][2]}""")
+    print(f"""{i:<4} {database[i][0]:<8}  {database[i][2]:>8}""")
  
-    
 while True:
    
     chave = int(input('\nMostrar nota de qual aluno? (999 interrompe): '))
     
     if chave == 999:
         break
-
-    print(f'Notas de {database[chave][0]}:', end="")
     
-    for c in range(0, 2):
-        
-        print(f' {database[chave][1][c]}', end=" ")
+    print('=-'*15)
 
+    if chave <= len(database) -1:
+        print(f'\nNotas de {database[chave][0]}: {database[chave][1]}')
+    else:
+        print('Aluno inválido.')
+    
 
 
 #[['Fernanda', [7.0, 8.0, 7.5]], ['Maria', [9.0, 8.0, 8.5]]]

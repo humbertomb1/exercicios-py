@@ -2,46 +2,25 @@
 '''
 Programa para criar vários arquivos
 '''
-import json
+from pathlib import Path
+import os
 
-arq_json = open("/home/humberto/Documentos/exercicios-python/data.json")
+pasta = os.chdir("/home/humberto/Documentos/pasta-teste")
 
-data = json.load(arq_json)
+arquivos = []
 
-ultimo = data["ultimo"]
+for arquivo in os.listdir():
+    if arquivo.startswith('ex') and arquivo.endswith('py'):
+        arquivos.append(arquivo)
+'''
+for i, arquivo in enumerate(sorted(arquivos)):
+    arquiv = Path(arquivo)
+    
+    if i + 1 <= 9:
+        novo = f'ex00{i+ 1}{arquiv.suffix}'
+    else:
+        novo = f'ex0{i+ 1}{arquiv.suffix}'
+    arquiv.rename(novo)'''
 
-num_arquivo = ultimo
-
-arq_json.close()
-
-print('~='*10)
-print('CRIADOR DE ARQUIVOS')
-print('~='*10, '\n')
-
-
-#tipo = input('Que tipo de arquivo você quer criar? ')
-
-fim = int(input('Quantos arquivos você quer criar? '))
-
-
-inicio = 0
-
-while inicio < fim:
-    if num_arquivo >= 100:
-        arquivo = open(f'ex{num_arquivo}.py', "x")
-    elif num_arquivo < 100:
-        arquivo = open(f'ex0{num_arquivo}.py', "x") # Criando arquivo
-    arquivo.write('#! /usr/bin/env python3') #Escrevendo shebang no arquivo
-    inicio += 1
-    num_arquivo += 1
-
-data["ultimo"] = num_arquivo # Jogando último número do arquivo dentro de 'data'
- 
-arq_json = open("data.json", "w") #Abrindo o arquivo data.json em modo write
-
-json.dump(data, arq_json) #jogando data dentro do arquivo data.json
-
-arq_json.close()
-
-print('FIM!')
-print(f'Foram criados {fim} arquivos')
+for c in sorted(arquivos):
+    print(c)

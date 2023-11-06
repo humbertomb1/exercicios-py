@@ -22,16 +22,12 @@ for cont in range(1, 10):
 
 for i, c in enumerate(matriz[0]):
     print(f'[{c}]', end=" ")
-    if i == 2:
-        print('\n')
 
+print()
 for i, c in enumerate(matriz[1]):
     print(f'[{c}]', end=" ")
-    if i == 2:
-        print('\n')
-    
 
-
+print()
 for c in (matriz[2]):
     print(f'[{c}]', end=" ")
     
