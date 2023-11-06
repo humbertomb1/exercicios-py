@@ -1,32 +1,31 @@
 #! /usr/bin/env python3
 
 '''
-Desenvolva um programa que leia quatro valores pelo teclado
-e guarde-os em uma tupla. No final, mostre:
-a) Quantas vezes apareceu o valor 9.
-b) Em que posição foi digitado o primeiro valor 3.
-c) Quais foram os primeiros pares
+Crie um programa onde o usuário possa digitar vários valores númericos
+e cadastre-os em uma lista. Caso o número já exista lá dentro,
+ele não será adicionado.
+No final, serão exibidos todos os valores únicos digitados
+em ordem crescente.
 '''
+lista = []
 
-tupla = (int(input('Digite um número ')), int(input('Digite um número ')), int(input('Digite um número ')), int(input('Digite um número ')))
+while True:
+    valor = int(input('Digite um valor: '))
+    
+    if valor not in lista:
+        lista.append(valor)
+    
+    
+    escolha = input('Quer adicionar mais números? [s/n] ').lower()
 
-cont9 = 0
+    while escolha != 's' and escolha != 'n':
 
-for nove in tupla:
-    if nove == 9:
-     cont9 += 1
-
-print(f'\nVezes que o número nove apareceu: {cont9}\n')
-
-if 3 in tupla:
-    print(f'O número três foi encontrado na posição {tupla.index(3)}')
-else:
-    print('O número 3 não foi digitado\n')
-
-
-print('\nOs pares foram:', end=" ")
-for par in tupla:
-    if par % 2 == 0:
-        print(par, end=" ")
-print('\n')
-
+        print('ERRO: Você não digitou "s" nem "n"')
+        escolha = input('Quer adicionar mais números? [s/n] ').lower()
+        
+    if escolha == 'n':
+        break
+    else:
+        continue
+    
+print(f'Os valores digitados em ordem crescente: {sorted(lista)}')

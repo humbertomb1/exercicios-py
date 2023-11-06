@@ -1,25 +1,27 @@
 #! usr/bin/env python3
-
+from datetime import date
 '''
-Faça um programa que leia o ano de nascimento de um jovem
-e informe, de acorde com sua idade:
-- Se ele ainda vai se alistar ao serviço militar
-- Se é a hora de ele se alistar
-- Se já passou do tempo de alistamento
-Mostrar também o tempo que falta ou que passou do prazo
-
+Leia o ano de nascimento de um atleta e mostre sua categoria, de acordo com a idade:
+- Até 9 anos: MIRIM
+- Até 14 anos: INFANTIL
+- Até: 19 anos: JUNIOR
+- até 20 anos; SÊNIOR
+- acima: MASTER
 '''
+print('CLASSIFICANDO CATEGORIA POR IDADE')
+data1 = date.today()
+data2 = int(data1.strftime("%Y"))
 
-print('STATUS DE ALISTAMENTO')
-nasci = int(input('Digite o seu ano de nascimento: '))
-anoAtual = 2023
-idade = anoAtual - nasci
+nasci = int(input('Em que ano você nasceu? '))
+idade = data2 - nasci
 
-if idade == 18:
-    print('Você tem 18 anos ou completa esse ano, está na hora de se alistar')
-elif idade < 18:
-    falta = 18 - idade # Calcula o tempo que ainda falta para o alistamento
-    print(f'Você tem menos de 18 anos, ainda falta {falta} ano(s) para você se alistar')
-elif idade > 18:
-    passou = idade - 18 # Calcula o tempo que já passou
-    print(f'Você já passou dos 18 e já passou {passou} ano(s) do prazo de alistamento')
+if idade <= 9:
+    print('ATLETA MIRIM')
+elif idade >= 10 and idade <= 14:
+    print('ATLETA INFANTIL')
+elif idade >= 15 and idade <=19:
+    print('ATLETA JUNIOR')
+elif idade == 20:
+    print('ATLETA SÊNIOR')
+else:
+    print('ATLETA MASTER')

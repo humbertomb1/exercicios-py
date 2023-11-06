@@ -1,22 +1,25 @@
 #! usr/bin/env python3
 
 '''
-Crie um programa que leia duas notas de um aluno e calcule sua média
-mostrando uma mensagem no final, de acordo com a média atingita:
-- Média abaixo de 5.0: REPROVADO
-- Média entre 6.0 e 6.9: RECUPERAÇÃO
-- Média de 7.0 ou superior: APROVADO
-
+Refaça o desafio dos triângulos, acrescentando o recurso
+de mostrar que tipo de triângulo será formado:
+- Equilátero: Todos os lados são iguais
+- Isósceles: Dois lados iguais
+- Escaleno: Todos os lados são diferentes
 '''
-print('TIRANDO MÉDIA DE DUAS NOTAS')
-nota1 = float(input('Digite a primeira nota: '))
-nota2 = float(input('Digite a segunda nota: '))
-media = (nota1 + nota2) / 2
 
-if media <= 5.0 or media <= 6.0:
-    print(f'\033[1;31mREPROVADO\033[m: Média de {media}')
-elif media > 6.0 and media <= 6.99:
-    print(f'\033[1;33mRECUPERAÇÃO\033[m: média de {media}')
-elif media >= 7:
-    print(f'\033[1;32mAPROVADO\033[m: média de {media}')
+seg1 = float(input('Digite o primeiro seguimento: '))
+seg2 = float(input('Digite o segundo seguimento: '))
+seg3 = float(input('Digite o terceiro seguimento: '))
 
+
+if seg1 < seg2 + seg3 and seg2 < seg1 + seg3 and seg3 < seg1 + seg2:
+    print('- É possível formar um triângulo com esses seguimentos')
+    if seg1 == seg2 == seg3: # Todos os lados iguais
+        print('- É um triângulo equilátero pois todos os lados são iguais')
+    if seg1 == seg2 or seg2 == seg3 or seg1 == seg3:# Ao menos dois lados são iguais
+        print('- É uum triangulo Isóeceles, pois dois seguimentos são iguais')
+    if seg1 != seg2 != seg3 != seg1: # Todos os lados são diferentes
+        print('- É um triângulo escaleno, pois todos os lados são diferentes')
+else:
+    print('Não é possível formar um triângulo com esses seguimentos')

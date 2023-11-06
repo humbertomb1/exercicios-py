@@ -1,37 +1,37 @@
 #! /usr/bin/env python3
 '''
-Faça um programa que leia o peso de cinco pessoas.
-No final, mostre qual foi o maior e o menor peso lidos
+Melhore o jogo do DESAFIO 028 onde o computador vai "pensar"
+em um número entre 0 e 10. Só que agora o jogador
+vai tentar adivinhar até acertar, mostrando o no final
+quantos palpites foram necessários para vencer.
 '''
-peso_lista = []
 
+import random
+from os import system
 
-print('-=-' *9)
-print(' LENDO MAIOR E MENOR PESO')
-print('-=-' *9, "\n")
+numeros = range(1, 11)
 
+tentativa = 0
+escolha_pc = random.choice(numeros)
+guess = None
 
+print('Acabei de pensar em um núemro de 0 a 10... Tente adivinhar!')
 
+while guess != escolha_pc: 
+	
+	escolha_pc = random.choice(numeros)
 
-for c in range(1 , 6):
-    peso = float(input(f'Digite o peso da {c}ª pessoa: '))
-    peso_lista.append(peso)    
+	
+	guess = int(input('Digite seu palpite: '))
 
-maior_peso = max(peso_lista)
-menor_peso = min(peso_lista)
-print(f'Maior Peso: {maior_peso}Kg\nMenor Peso: {menor_peso}Kg')
+	if guess == escolha_pc:
 
-
-
-# USANDO TECNICA DE REGISTRAR O MENOR PESO ANTES DO LOOP
-
-#registrando a menor peso antes do loop
-#menor_peso = peso
-
-#for c in range(2, 6):
-#    peso = float(input(f'Digite o peso da {c} pessoa: '))
-#    if peso > maior_peso:
-#        maior_peso = peso
-        
-#    elif peso < menor_peso:
-#        menor_peso = peso
+		tentativa += 1
+		system('clear')
+		print(f'Você acertou! O número que pensei também foi {escolha_pc}!\nVocê precisou de {tentativa} palpites para acertar')
+		
+	else:
+		system('clear')
+		print(f'Você errou! o número que pensei foi {escolha_pc}')
+		tentativa += 1 
+		

@@ -1,31 +1,25 @@
 #! /usr/bin/env python3
 
 '''
-Crie um programa onde o usuário possa digitar vários valores númericos
-e cadastre-os em uma lista. Caso o número já exista lá dentro,
-ele não será adicionado.
-No final, serão exibidos todos os valores únicos digitados
-em ordem crescente.
+Crie um programa onde o usuário digite uma expressão qualquer
+que use parênteses. Seu aplicativo deverá analisar se a 
+expressão passada está com os parênteses abertos
+e fechados na ordem correta
+
 '''
-lista = []
 
-while True:
-    valor = int(input('Digite um valor: '))
-    
-    if valor not in lista:
-        lista.append(valor)
-    
-    
-    escolha = input('Quer adicionar mais números? [s/n] ').lower()
+expressao = [input('Digite uma expressão: ')]
+aberto = 0
+fechado = 0
 
-    while escolha != 's' and escolha != 'n':
+for parent in expressao:
+    for contaPar in parent:
+        if '(' in contaPar:
+            aberto += 1
+        elif ')' in contaPar:
+            fechado += 1
 
-        print('ERRO: Você não digitou "s" nem "n"')
-        escolha = input('Quer adicionar mais números? [s/n] ').lower()
-        
-    if escolha == 'n':
-        break
-    else:
-        continue
-    
-print(f'Os valores digitados em ordem crescente: {sorted(lista)}')
+if fechado != aberto:
+    print('Expressão inválida')
+else:
+    print('Expresão válida')

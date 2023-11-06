@@ -1,24 +1,18 @@
+#! /usr/bin/env python3
+
 '''
-Convertendo decimal para binário com loop
+Faça um program que leia um número qualquer e mostre o seu
+fatorial.
+ex:
+5! = 5x4x3x2x1= 120
 '''
-from os import system
+fatorando = int(input('Digite um número '))
 
-decimal = int(input('Digite o decimal: '))
-dividendo = decimal
-lista_resto = []
-
-for c in range(dividendo):
-    resto = dividendo % 2
-    lista_resto.append(resto)
-    quoci = dividendo // 2 # pegando o quociente da divisão
-    dividendo = quoci # quociente passa a ser o dividendo
-    if dividendo == 0: # Parar o loop uma vez que dividendo chegue a 0
-        break
-
-system('clear')
-
-# invertendo a ordem da lista
-lista_resto.reverse()
-str_bin = "".join(str(bit) for bit in lista_resto)
-
-print(f'\033[1;32m{decimal}\033[m em binário é \033[1;33m{str_bin}\033[m')
+cont = fatorando
+fator = 1
+print(f'Calculando {fatorando}! = ', end="")
+while cont > 0:
+    print(f'{cont} x ' if cont > 1 else f'{cont} = ', end="")
+    fator *= cont
+    cont -= 1
+print(fator)

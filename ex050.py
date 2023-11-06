@@ -1,25 +1,14 @@
 #! /usr/bin/env python3
-
-numero = int(input('Digite um número: '))
-
-print('''
-===================
-TABELA DE CONVERSÃO
-[1] Para binário
-[2] Para octal
-[3] Para hexadecimal
+'''
+Refaça o desafio 009 mostrando a tabuada de um número que
+o usuário escolher, só que agora utilizando um laço for
+'''
+produto = int(input('Tabuada de que número você quer ver? '))
+print(F'''
+=-=-=-=-=-=-=-=-=-
+  TABUADA DE {produto}
+=-=-=-=-=-=-=-=-=-
 ''')
-
-escolha = int(input('Digite no número :'))
-
-if escolha == 1:
-    binario = bin(numero)
-    print(f'O número{numero} convertido para binário é {binario}')
-elif escolha == 2:
-    octal = oct(numero)
-    print(f'O número {numero} convertido para octal é {octal}')
-elif escolha == 3:
-    hexaD= hex(numero)
-    print(f'O Número {numero} convertido para hexadecimal é {hexaD}')
-else:
-    print('OPÇÃO INVÁLIDA')
+for p in range(1, 11):
+    result = produto * p
+    print(f'\033[1;32m{produto}\033[mx{p} = {result}') 

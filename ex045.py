@@ -1,32 +1,53 @@
-#! usr/bin/env python3
-import requests
-from bs4 import BeautifulSoup
-'''
-Desenvolva uma lógica que leia o peso e a altura de uma pessoa, calcule o seu IMC
-e mostre seu status, de acordo com a tabela abaixo:
-- Abaixo de 18.5: Abaixo do Peso
-- Entre 18.5 e 28:Peso Ideal
-- 25 até 30: Sobrepeso
-- 30 até 40: Obesidade
-- Acima de 40: Obesidade mórbida
+#! /usr/bin/env python3
 
 '''
+Crie um programa que faça o computador jogar Jokenpô com você
 
-print('CALCULANDO IMC')
-peso = float(input('Digite seu peso: '))
-altura = float(input('Gitei sua altura '))
-imc = peso / (altura ** 2)
-if imc < 17:
-    print(f'\033[1;36mIMC\033[m: {imc:.1f}.\nVocê está \033[1;31mmuito abaixo do peso.\033[m')
-elif imc >= 17 and imc <= 18.49:
-    print(f'\033[1;36mIMC\033[m: {imc:.1f}.\nVocê está \033[1;33mabaixo do peso\033[m')
-elif imc >=18.49 and imc <=24.99:
-    print(f'\n\033[1;36mIMC\033[m: {imc:.1f}.\nVocê está com o \033[1;32mpeso ideal\033[m')
-elif imc >= 24.99 and imc <= 29.99:
-    print(f'\033[1;36mIMC\033[m: {imc:.1f}.\nVocẽ está \033[1;33macima do peso\033[m')
-elif imc >= 29.99 and imc <= 35.99:
-    print(f'\033[1;36mIMC\033[m: {imc:.1f}.\n 033[1;33mObesidade Grau 1\033[m')
-elif imc >= 35.99 and imc <= 39.99:
-    print(f'\033[1;36mIMC\033[m: {imc:.1f}.\n\033[1;31mObesidade grau 2\033[m')
+'''
+from random import choice
+from time import sleep
+
+print('Suas opções:')
+print('[ 0 ] \033[1;31mPEDRA\033[m')
+print('[ 1 ] \033[1;32mPAPEL\033[m')
+print('[ 2 ] \033[1;33mTESOURA\033[m')
+print('='*15,'\n')
+jogada = int(input('Qual é a sua jogada? '))
+print('\n')
+
+lista = ['PEDRA', 'PAPEL', 'TESOURA']
+escolhaPC  = choice(lista)
+print('Pronto?! Vamos lá.\n')
+sleep(1)
+print('...\n')
+sleep(1)
+print('PEDRA\n')
+sleep(1)
+print('PAPEL\n')
+sleep(1)
+print('TESOUUUURAA!\n')
+sleep(1)
+
+if jogada == 0:
+    if escolhaPC == 'PEDRA':
+        print(f'EMPATE!\nTambém escolhi \033[1;31m{escolhaPC}\033[m!')
+    if escolhaPC == 'PAPEL':
+        print(f'GANHEI!\nEscolhi\033[1;32m{escolhaPC}\033[m! E \033[1;32mPAPEL\033[m Vence \033[1;31mPEDRA\033[m!')
+    if escolhaPC == 'TESOURA':
+        print(f'VOCÊ GANHOU!\nEscolhi \033[1;33m{escolhaPC}\033[m! E \033[1;31mPEDRA\033[m vence \033[1;33mTESOURA\033[m!')
+elif jogada == 1:
+    if escolhaPC == 'PAPEL':
+            print(f'EMPATE!\n Também escolhi \033[1;32m{escolhaPC}\033[m!' )
+    if escolhaPC == 'PEDRA':
+            print(f'VOCÊ GANHOU!\n Escolhi \033[1;31m{escolhaPC}\033[m! E \033[1;32mPAPEL\033[m vence \033[1;31mPEDRA\033[m!')
+    if escolhaPC == 'TESOURA':
+            print(f'GANHEI!\n Escolhi \033[1;33m{escolhaPC}\033[m! E\033[1;33m{escolhaPC}\033[m vence \033[1;32mPAPEL\033[m!')
+elif jogada == 2:
+    if escolhaPC == 'TESOURA':
+        print(f'EMPATE!\nTambém escolhi \033[1;33m{escolhaPC}\033[m!')
+    if escolhaPC == 'PEDRA':
+        print(f'GANHEI!\nEscolhi \033[1;31m{escolhaPC}\033[m! E \033[1;31m{escolhaPC}\033[m vence \033[1;33mTESOURA\033[m!')
+    if escolhaPC == 'PAPEL':
+        print(f'VOCê GANHOU!\nEscolhi \033[1;32m{escolhaPC}\033[m! E \033[1;33mTESOURA\033[m vence \033[1;32m{escolhaPC}\033[m!')
 else:
-    print(f'\033[1;36mIMC\033[m: {imc:.1f}.\n\033[1;31mObesidade Grau 3\033[m')
+     print('JOGADA INVÁLIDA! Você não escolheu nenuma das opções acima')

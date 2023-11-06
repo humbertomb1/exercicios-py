@@ -1,27 +1,32 @@
 #! usr/bin/env python3
-from datetime import date
+import requests
+from bs4 import BeautifulSoup
 '''
-Leia o ano de nascimento de um atleta e mostre sua categoria, de acordo com a idade:
-- Até 9 anos: MIRIM
-- Até 14 anos: INFANTIL
-- Até: 19 anos: JUNIOR
-- até 20 anos; SÊNIOR
-- acima: MASTER
+Desenvolva uma lógica que leia o peso e a altura de uma pessoa, calcule o seu IMC
+e mostre seu status, de acordo com a tabela abaixo:
+- Abaixo de 18.5: Abaixo do Peso
+- Entre 18.5 e 28:Peso Ideal
+- 25 até 30: Sobrepeso
+- 30 até 40: Obesidade
+- Acima de 40: Obesidade mórbida
+
 '''
-print('CLASSIFICANDO CATEGORIA POR IDADE')
-data1 = date.today()
-data2 = int(data1.strftime("%Y"))
 
-nasci = int(input('Em que ano você nasceu? '))
-idade = data2 - nasci
-
-if idade <= 9:
-    print('ATLETA MIRIM')
-elif idade >= 10 and idade <= 14:
-    print('ATLETA INFANTIL')
-elif idade >= 15 and idade <=19:
-    print('ATLETA JUNIOR')
-elif idade == 20:
-    print('ATLETA SÊNIOR')
+print('CALCULANDO IMC')
+peso = float(input('Digite seu peso: '))
+altura = float(input('Gitei sua altura '))
+imc = peso / (altura ** 2)
+if imc < 17:
+    print(f'\033[1;36mIMC\033[m: {imc:.1f}.\nVocê está \033[1;31mmuito abaixo do peso.\033[m')
+elif imc >= 17 and imc <= 18.49:
+    print(f'\033[1;36mIMC\033[m: {imc:.1f}.\nVocê está \033[1;33mabaixo do peso\033[m')
+elif imc >=18.49 and imc <=24.99:
+    print(f'\n\033[1;36mIMC\033[m: {imc:.1f}.\nVocê está com o \033[1;32mpeso ideal\033[m')
+elif imc >= 24.99 and imc <= 29.99:
+    print(f'\033[1;36mIMC\033[m: {imc:.1f}.\nVocẽ está \033[1;33macima do peso\033[m')
+elif imc >= 29.99 and imc <= 35.99:
+    print(f'\033[1;36mIMC\033[m: {imc:.1f}.\n 033[1;33mObesidade Grau 1\033[m')
+elif imc >= 35.99 and imc <= 39.99:
+    print(f'\033[1;36mIMC\033[m: {imc:.1f}.\n\033[1;31mObesidade grau 2\033[m')
 else:
-    print('ATLETA MASTER')
+    print(f'\033[1;36mIMC\033[m: {imc:.1f}.\n\033[1;31mObesidade Grau 3\033[m')

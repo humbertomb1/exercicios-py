@@ -1,15 +1,15 @@
 #! /usr/bin/env python3
+
+''' 
+Crie um programa que leia vários números inteiros pelo teclado. 
+O Programa vai para quando o usuário digitar o valor 999,
+que é a condição de parada. No final, mostre quantos números
+foram digitado e qual foi a soma entre eles (desconsiderando a flag)
 '''
-Refaça o DESAFIO 051, lendo o primeiro termo e a razão de uma PA,
-mostrando os 10 termos da progreesão usando a estrutura while
-'''
-print('MOSTARANDO OS 10 PRIMEIROS TERMOS DE UMA PA\n')
-n1 = int(input('Digite o primeiro termo: '))
-r = int(input('Digite o razão '))
-termo = n1
-cont = 1
-print('Os 10 primeros termos: ', end="")
-while cont <= 10:
-    termo += r
-    cont += 1
-    print(termo, end=" ")
+soma = 0
+while True:
+    numero = int(input('Digite um número :'))
+    if numero == 999:
+        break
+    soma += numero
+print(f'A soma foi {soma}')

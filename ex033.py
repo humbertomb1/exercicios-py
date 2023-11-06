@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
 
-''' Faça um programa em que leia o ano qualquer e mostre se ele é bissexto'''
+'''Faça um programa que leia três números e mostre qual é o maior e qual é o menor.'''
 
-ano = str(input('Digite um ano para verificarmos se ele é bissexto: '))
-doisprim = int(ano[:2]) # Os dois primeiros números
-doisult = int(ano[2:]) # Os dois últimos números
+num = input('Digite três números para verficarmos quem é o maior entre eles: ')
 
 
-if doisult % 4 == 0 and doisult != 00: # Testa se os dois ultimos números são divisíveis por 4 e não são iguais a 00
-	print('Ano bissexto')
+if num[0] > num[1] and num[0] > num[2]:
+	print(f'Entre {num[0]}, {num[1]} e {num[2]} o maior é {num[0]}')
 else:
-	if doisprim % 4 == 0 and doisult == 00: # Verdadeiro se o resto da divisão por 4 de 'doisprim' é igual a 0 e os dois últimos números são iguais a 00
-		print('Ano bissexto')
+	if num[1] > num[0] and num[1] > num[2]:
+	    print(f'Entre o número {num[0]}, {num[1]} e {num[2]} o maior é {num[1]}')
 	else:
-		print('Não é ano bissexto')
+		if num[2] > num[0] and num[2] > num[1]:
+		   print(f'Entre o número {num[0]}, {num[1]} e {num[2]} o maior é {num[2]}')
+		else:
+			if num[0] and num[1] and num[2] == num[0] or num[1] or num[2]:
+				print('Há dois números iguais um menor que os dois')
 
+			

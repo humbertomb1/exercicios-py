@@ -1,25 +1,36 @@
 #! usr/bin/env python3
 
 '''
-Refaça o desafio dos triângulos, acrescentando o recurso
-de mostrar que tipo de triângulo será formado:
-- Equilátero: Todos os lados são iguais
-- Isósceles: Dois lados iguais
-- Escaleno: Todos os lados são diferentes
+Elabore um programa que calcule o valor a ser pago por um produto, considere o seu
+preço normal e condição de pagamento:
+- À vista dinheiro/cheque: 10% de desconto
+- À vista no cartão: 5% de desconto
+- em até 2x no cartão: preço normal
+- 3x ou mais no cartão: 20% de juros
+
 '''
 
-seg1 = float(input('Digite o primeiro seguimento: '))
-seg2 = float(input('Digite o segundo seguimento: '))
-seg3 = float(input('Digite o terceiro seguimento: '))
+valor = float(input('Preço das compras: R$'))
 
+print("====FORMAS DE PAGAMENTO====")
+print('[1] À vista dinheiro/cheque')
+print('[2] À vista no cartão')
+print('[3] Em até 2x no cartão')
+print('[4] 3x ou mais no cartão')
+opcao = int(input('Qual é a opção? '))
 
-if seg1 < seg2 + seg3 and seg2 < seg1 + seg3 and seg3 < seg1 + seg2:
-    print('- É possível formar um triângulo com esses seguimentos')
-    if seg1 == seg2 == seg3: # Todos os lados iguais
-        print('- É um triângulo equilátero pois todos os lados são iguais')
-    if seg1 == seg2 or seg2 == seg3 or seg1 == seg3:# Ao menos dois lados são iguais
-        print('- É uum triangulo Isóeceles, pois dois seguimentos são iguais')
-    if seg1 != seg2 != seg3 != seg1: # Todos os lados são diferentes
-        print('- É um triângulo escaleno, pois todos os lados são diferentes')
-else:
-    print('Não é possível formar um triângulo com esses seguimentos')
+if opcao == 1:
+    novoValor = valor - (valor*10/100)
+    print(f'Sua compra de R${valor} vai custar R${novoValor} no final.')
+elif opcao == 2:
+    novoValor = valor - (valor*5/100)
+    print(f'Sua compra de R${valor} vai custar R${novoValor} no final')
+elif opcao == 3:
+     parcela = valor / 2
+     print(f'Sua compra de R${valor} será divida em 2x no cartão e com parcelas de {parcela} vai custar R${valor} no final.')
+elif opcao == 4:
+    parcela = int(input('Em quantas vezes? '))
+    novoValor = valor + (valor*20/100)
+    valorParc = novoValor / parcela
+    print(f'Sua compra ficou no total de {novoValor} parcelado em {parcela}x de {valorParc}')
+    

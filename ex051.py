@@ -1,13 +1,20 @@
 #! /usr/bin/env python3
 '''
-Faça um programa que mostre na tela uma contagem regressiva para estouro de fogos de artifícios
-indo de 10 até 0, com uma pausa de 1 segundo entre eles
+Desenvolva um programa que leia seis números inteiros e
+mostre a soma apenas daqueles que forem pares. Se o valor digitado for impar,
+desconsidere-o.
 '''
-from time import sleep
-lista = ['UM', 'DOIS', 'TRÊS', 'QUATRO', 'CINCO', 'SEIS', 'SETE', 'OITO', 'NOVE','DEEEEZ']
-cont = 0
-for c in range(10, 0, -1):
-    print(lista[0 + cont])    
-    sleep(1)
-    cont += 1
-print('PA... PA PA APAPAPAPAPPAPAPA BOOOOM!!')
+
+
+soma = 0
+listPares = []
+
+
+for c in range (1,7):
+    numero = int(input(f'Digite o {c}° número: '))
+    if numero % 2 == 0:
+        pares = numero
+        listPares.append(numero)
+        soma += pares
+
+print(f'A soma dos números pares {listPares} é {soma}')

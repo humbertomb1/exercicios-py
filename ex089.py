@@ -1,55 +1,46 @@
 #! /usr/bin/env python3
 
 '''
-Faça um programa que leia o nome peso de várias pessoas, 
-guardando tudo em uma lista. No final, mostre:
-a) Quantas foram cadastradas.
-b) Uma listagem com as pessoas mais pesadas.
-c) Uma listagem com as pessoas mais leves.
-'''     #0Nome #1Peso #2Nome mais leve #3 Peso mais leve #4Nome mais pesado #5 maior peso
-pessoas = [[], [], [], [], [], []]
+Faça um programa que ajude um jogador da MEGA SENA a criar
+palpites. O programa vai perguntar quantos jogos
+serão gerados e vai sortear 6 números entre 1 e 60 para cada jogo,
+cadastrando tudo em uma lista composta
+inpute inicial: "Quantos jogos vocÊ que que eu sorteie?"
+'''
+from time import sleep
+import random
+from os import system
+print('=-' *20)
+print('    GERADOR DE JOGOS PARA MEGA-CENA')
+print('-='*20, '\n')
 
-while True:
-    nome = input('Digite o nome: ')
-    peso = float(input('Digite o peso: '))
-    pessoas[0].append(nome)
-    pessoas[1].append(peso)
-    if len(pessoas[1]) > 0:
-        pessoas[3] = max(pessoas[1])
-        pessoas[5] = min(pessoas[1])
+sorteio = int(input('Quantos jogos você quer sortear? '))
+jogos = []
+gerador = []
+num = 0
 
-    if peso <= 70:
-        pessoas[2].append(nome)
-        #pessoas[3].append(peso)
-    if peso >= 100:
-        pessoas[4].append(nome)
-        #pessoas[5].append(peso) 
 
-    resp = input('Quer cadastrar mais pessoas? [s/n] ')
+for contador in range(0, sorteio):
 
-    while resp != 's' and resp != 'n':
-        print('ERRO: Resposta inválida. Digite "s" ou "n"')
-        resp = input('Quer cadastrar mais pessoas? [s/n] ')
+    for vezes in range(0, 6):
 
-    if resp == 'n':
-        break
+        num = random.randint(1, 60)
 
-print(f'O número de pessoas cadastradas foi: {len(pessoas[0])}')
-print(f'\nO maior peso foi: {pessoas[3]}Kg')
+        while num in gerador:
+            num = random.randint(1, 60)
 
-if len(pessoas[4]) > 0:
-    print(f'Pessoas com 100Kg ou mais: {pessoas[4]}')
-else:
-    print('\nNão há pessoas com 100Kg ou mais')
-    
-if len(pessoas[2]) > 0:
-    print(f'\nPessoas com 70Kg ou menos: {pessoas[2]}')
-else:
-    print('\nNão há pessoas com 70Kg ou menos')
+        gerador.append(num)
+  
+    jogos.append(gerador.copy())
 
-if max(pessoas[1]) == min(pessoas[1]):
-    print(f'O menor peso também foi: {pessoas[5]}Kg')
+    gerador.clear()
 
-else:
-    print(f'O menor peso foi: {pessoas[5]}Kg')
+system('clear')
+print('=-' *20)
+print('    GERADOR DE JOGOS PARA MEGA-CENA')
+print('-='*20, '\n')
 
+print(f'LISTA COM {sorteio} JOGOS: ', end="\n\n")
+for i, c in enumerate(jogos):
+    sleep(1)
+    print(f'Jogo {i + 1}: {c}\n')

@@ -1,37 +1,19 @@
 #! /usr/bin/env python3
 '''
-Melhore o jogo do DESAFIO 028 onde o computador vai "pensar"
-em um número entre 0 e 10. Só que agora o jogador
-vai tentar adivinhar até acertar, mostrando o no final
-quantos palpites foram necessários para vencer.
+Melhore o desafio 061, perguntando para o usuário se ele quer
+mostrar mais alguns termos. o programa encerra quando ele
+disser que quer mostrar zero termos
 '''
 
-import random
-from os import system
+n1 = int(input('Qual é o primeiro termo: '))
+r = int(input('Digite a razão: '))
+cont = int(input('Quantos termos você quer mostrar dessa PA? '))
 
-numeros = range(1, 11)
+termo = n1
 
-tentativa = 0
-escolha_pc = random.choice(numeros)
-guess = None
-
-print('Acabei de pensar em um núemro de 0 a 10... Tente adivinhar!')
-
-while guess != escolha_pc: 
-	
-	escolha_pc = random.choice(numeros)
-
-	
-	guess = int(input('Digite seu palpite: '))
-
-	if guess == escolha_pc:
-
-		tentativa += 1
-		system('clear')
-		print(f'Você acertou! O número que pensei também foi {escolha_pc}!\nVocê precisou de {tentativa} palpites para acertar')
-		
-	else:
-		system('clear')
-		print(f'Você errou! o número que pensei foi {escolha_pc}')
-		tentativa += 1 
-		
+while cont > 0:
+    print(termo, end=" ")
+    termo += r 
+    cont -= 1
+    if cont == 0:
+        cont = int(input('\nQuer mostrar mais termos? Digite 0 para encerrar o programa: '))

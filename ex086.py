@@ -1,29 +1,25 @@
 #! /usr/bin/env python3
 
-''' 
-Crie um programa que vai ler vários e colocar em uma lista.
-Depois disso, mostre:
-a) Quantos números foram digitados
-b) A lista de valores, ordenada e forma crescente
-c) Se o valor 5 foi digitado e está ou não na lista.
 '''
+Crie um programa onde o usuário possa digitar sete valores numéricos
+e cadstre-os em uma list única que mantenha separados pares e ímpares.
+No final, mostre os valores pares e ímpares em ordem crescente.
+'''
+valores = [[], []]
 
-valores = []
-while True:
-    num = int(input('Digite um número: '))
-    valores.append(num)
-    resp = input('Quer digitar mais números? [s/n]')
-    
-    while resp != 's' and resp != 'n':
-        print('ERRO: Você não escolheu uma opção válida')
-        resp = input('Quer digitar mais números? [s/n]')
-    
-    if resp == 'n':
-        break
-print(f'Foram digitados {len(valores)} números')
-print(f'Lista ordenada: {sorted(valores)}')
+for cont in range(0, 7):
+    valor = int(input('Digite um valor: '))
+    if valor % 2 == 0:
+        valores[0].append(valor)
+    else:
+        valores[1].append(valor)
 
-if 5 not in valores:
-    print('O valor 5 não está na lista')
+if len(valores[0]) > 0:
+    print(f'\nPares: {sorted(valores[0])}')
 else:
-    print('O valor 5 está na lista')
+    print('\nNão há valores pares nessa sequência')
+
+if len(valores[1]) > 0:
+    print(f'\nÍmpares: {sorted(valores[1])}')
+else:
+    print('\nNão há valores ímpares nessa sequência')

@@ -1,13 +1,37 @@
 #! /usr/bin/env python3
 '''
-Desenvolva um programa que leia o primeiro termo e a razão de uma PA.
-No final, mostre os 10 primeiros termos dessa progressão.
+Faça um programa que leia o peso de cinco pessoas.
+No final, mostre qual foi o maior e o menor peso lidos
 '''
-n1 = int(input('Digite o primeiro termo da PA: '))
-razao = int(input('Digite a razão da PA '))
-termos = n1 + razao
-print(f'Os 10 primeiros termos dessa PA são: \033[1;33m{n1} {termos}\033[m', end=" ")
+peso_lista = []
 
-for c in range (1, 8 + 1):
-    termos += razao
-    print(f'\033[1;33m{termos}\033[m', end=" ")
+
+print('-=-' *9)
+print(' LENDO MAIOR E MENOR PESO')
+print('-=-' *9, "\n")
+
+
+
+
+for c in range(1 , 6):
+    peso = float(input(f'Digite o peso da {c}ª pessoa: '))
+    peso_lista.append(peso)    
+
+maior_peso = max(peso_lista)
+menor_peso = min(peso_lista)
+print(f'Maior Peso: {maior_peso}Kg\nMenor Peso: {menor_peso}Kg')
+
+
+
+# USANDO TECNICA DE REGISTRAR O MENOR PESO ANTES DO LOOP
+
+#registrando a menor peso antes do loop
+#menor_peso = peso
+
+#for c in range(2, 6):
+#    peso = float(input(f'Digite o peso da {c} pessoa: '))
+#    if peso > maior_peso:
+#        maior_peso = peso
+        
+#    elif peso < menor_peso:
+#        menor_peso = peso

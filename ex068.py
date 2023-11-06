@@ -1,19 +1,25 @@
 #! /usr/bin/env python3
+
+''' 
+Faça um programa que mostre a tabuada de vários números,
+um de cada vez, para cada valor digitado pelo usuário.
+O programa será interrompido quando o número solicidado
+for negativo.
 '''
-Melhore o desafio 061, perguntando para o usuário se ele quer
-mostrar mais alguns termos. o programa encerra quando ele
-disser que quer mostrar zero termos
-'''
+cont = 1
+while True:
+    print('-==-'*10)
+    print('               TABUADAS    \n')
+    print('Digite -1 para encerrar o programa')
+    print('-==-'*10, '\n')
 
-n1 = int(input('Qual é o primeiro termo: '))
-r = int(input('Digite a razão: '))
-cont = int(input('Quantos termos você quer mostrar dessa PA? '))
+    produto = int(input('Quer ver a tabuada de qual número? '))
+    if produto == -1:
+        break
+    while cont < 10:
+        produto2 = produto * cont
+        print(f'{produto} x {cont} = {produto2} ')
+        cont += 1
+    print('~'*35, '\n')
 
-termo = n1
-
-while cont > 0:
-    print(termo, end=" ")
-    termo += r 
-    cont -= 1
-    if cont == 0:
-        cont = int(input('\nQuer mostrar mais termos? Digite 0 para encerrar o programa: '))
+print('Programa encerrado pelo usuário.')

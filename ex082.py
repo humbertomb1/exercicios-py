@@ -1,38 +1,29 @@
 #! /usr/bin/env python3
+
+''' 
+Crie um programa que vai ler vários e colocar em uma lista.
+Depois disso, mostre:
+a) Quantos números foram digitados
+b) A lista de valores, ordenada e forma crescente
+c) Se o valor 5 foi digitado e está ou não na lista.
 '''
-Crie um programa que tenha uma tupla
-com várias palavras(não usar acentos)
-Depois disso, você deve mostrar, para cada palavra,
-quais são as suas vogais
-'''
-'''
-tupla = ('Humberto', 'Moura', 'Adriana', 'William')
-ind = 0
-cont = 0
-while cont < len(tupla):
-    print(f'\n\nAs vogais da palavra {tupla[cont].upper()} são:', end=" ")
+
+valores = []
+while True:
+    num = int(input('Digite um número: '))
+    valores.append(num)
+    resp = input('Quer digitar mais números? [s/n]')
     
-    for letra in tupla[ind].lower():
-           
-        if letra == 'a':
-                print(f'{letra}', end=" ")
-        elif letra == 'e':
-                print(f'{letra}', end=" ")
-        elif letra == 'i':
-                print(f'{letra}', end=" ")
-        elif letra == 'o':
-                print(f'{letra}', end=" ")
-        elif letra == 'u':
-                print(f'{letra}', end=" ")
-    cont +=1
-    ind += 1
-print('\n')
-'''
+    while resp != 's' and resp != 'n':
+        print('ERRO: Você não escolheu uma opção válida')
+        resp = input('Quer digitar mais números? [s/n]')
+    
+    if resp == 'n':
+        break
+print(f'Foram digitados {len(valores)} números')
+print(f'Lista ordenada: {sorted(valores)}')
 
-palavras = ('Humberto', 'Renan', 'Adriana', 'William', 'Onicia')
-
-for palavra in palavras: #iterando sobre a lista
-    print(f'\nNa palavra {palavra.upper()} temos ', end="")
-    for letra in palavra: # iterando sobre cada palavra da lista
-        if letra.lower() in 'aeiou':
-            print(f'{letra.lower()}', end=" ")
+if 5 not in valores:
+    print('O valor 5 não está na lista')
+else:
+    print('O valor 5 está na lista')

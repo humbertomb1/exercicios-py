@@ -1,20 +1,25 @@
 #! /usr/bin/env python3
 '''
-Desenvolva um programa que leia seis números inteiros e
-mostre a soma apenas daqueles que forem pares. Se o valor digitado for impar,
-desconsidere-o.
+Crie um programa que leia o ano de nascimento de sete pessoas.
+No final, mostre quantas pessoas ainda não atingiram a maioridade
+e quantas já são maiores
 '''
+from datetime import date
+
+data = date.today()
+ano_atual = int(data.strftime("%Y"))
+
+total_menor = 0
+total_maior = 0
 
 
-soma = 0
-listPares = []
+for c in range(1, 8):
+    nasci = int(input(f'Digite o ano de nascimento da {c} pessoa: '))
+    idade = ano_atual - nasci
+    if idade < 18:
+        total_menor += 1
+    else:
+        total_maior += 1
 
 
-for c in range (1,7):
-    numero = int(input(f'Digite o {c}° número: '))
-    if numero % 2 == 0:
-        pares = numero
-        listPares.append(numero)
-        soma += pares
-
-print(f'A soma dos números pares {listPares} é {soma}')
+print(f'{total_menor} pessoas não atigiram a maior idade\ne {total_maior} já são maiores de idade')

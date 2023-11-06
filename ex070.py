@@ -1,21 +1,49 @@
 #! /usr/bin/env python3
+
+''' 
+Crie um programa que leia a idade e a o sexo
+de várias pessoas. A cada pessoa cadastrada,
+o programa deverá perguntar se o usuário quer
+ou não continuar, no final mostre:
+a) Quantas pessoas tem mais de 18 anos.
+b) Quantos homens foram cadastrados.
+c) Quantas mulheres tem menos de 20 anos.
 '''
-Crie um programa que leia vários números inteiros pelo teclado.
-O Programa só vai parar quando o usuário digitar 999, que é 
-a condição de parada. No final, mostre quantos números foram
-digitados e qual foi a soma entre eles (descosiderandoa flag)
-'''
+
+from os import system
+
+#Criar um loop para perguntar se usuário quer continuar
+idade = menos_20 = homens = 0
+
+while True:
+    
+     #iniciar viriáveis para idade e sexo
+    sexo = input('Qual é o sexo da pessoa? [M/F] ').lower().strip()
+
+    while sexo != 'masculino' and sexo != 'feminino':
+        
+        sexo = input('Qual é o sexo da pessoa? [M/F] ').lower().strip()
+
+    resp_idade = int(input('\nE a idade? '))
+    
+    # Criar condição para pessoas que tem mais de 18 anos
+    if resp_idade > 18:
+        idade += 1
+    # Criar condição para quantos homens foram cadastrados
+    if sexo == 'masculino':
+        homens += 1
+    # Criar condição para quantas mulheres tem menos de 20 anos.
+    if sexo == 'feminino' and resp_idade < 20:
+        menos_20 += 1
+
+    resp = input('\nQuer continuar? [S/N] ').lower().strip()
+    while resp != 's' and resp != 'n':
+       resp = input('\nQuer continuar? [S/N] ').lower().strip()
+    system('clear')
+    if resp == 'n':
+        break
 
 
-
-numero = 0
-soma = 0 # criar uma variável para somar todos os números que foram digitados
-total = 0 # criar variável para totalizar números digitados
-while numero != 999: #criar um laço
-
-    numero = int(input('Digite um número. (999 Para para o programa):')) #criar uma variavel para ler input do teclado dentro do laço
-
-    if numero != 999: #criar uma condição para desconsiderar a flag
-        soma += numero
-        total += 1
-print(f'A soma foi {soma}. O total de números digitados foi {total}')
+print(f'- Homens cadastrados: {homens}')
+print(f'- Pessoas com mais de 18 anos: {idade}')
+print(f'- Mulheres com menos de 20 anos: {menos_20}')

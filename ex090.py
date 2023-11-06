@@ -1,25 +1,53 @@
 #! /usr/bin/env python3
 
 '''
-Crie um programa onde o usuário possa digitar sete valores numéricos
-e cadstre-os em uma list única que mantenha separados pares e ímpares.
-No final, mostre os valores pares e ímpares em ordem crescente.
+Crie um programa que leia nome e duas notas de vários alunos
+e guarde tudo em uma lista composta. No final, mostre um bletim
+contendoa média de cada um e permita que o usuário possa mostrar
+notas de cada aluno individualmente
 '''
-valores = [[], []]
+from os import system
+database = []
 
-for cont in range(0, 7):
-    valor = int(input('Digite um valor: '))
-    if valor % 2 == 0:
-        valores[0].append(valor)
+
+while True:
+
+    aluno = input('Nome: ')
+    
+    nota1 = float(input('Nota 1: '))
+    nota2 = float(input('Nota 2: '))
+    media = nota1 + nota2 / 2
+    database.append([aluno, [nota1, nota2], media])
+
+    resp = input('Quer continauar? [s/n]? ')
+    
+    while resp != 's' and resp != 'n':
+        resp = input("ERRO: Você não digitou nem 's' nem 'n'. Tente novamente: ")
+    
+    if resp in 'n':
+        break
+
+system('clear')
+print(f'{"No.":<4} {"NOME":<10} {"MEDIA":>8}')
+print('-'*25)
+
+for i, c in enumerate(range(0, len(database))):
+    print(f"""{i:<4} {database[i][0]:<8}  {database[i][2]:>8}""")
+ 
+while True:
+   
+    chave = int(input('\nMostrar nota de qual aluno? (999 interrompe): '))
+    
+    if chave == 999:
+        break
+    
+    print('=-'*15)
+
+    if chave <= len(database) -1:
+        print(f'\nNotas de {database[chave][0]}: {database[chave][1]}')
     else:
-        valores[1].append(valor)
+        print('Aluno inválido.')
+    
 
-if len(valores[0]) > 0:
-    print(f'\nPares: {sorted(valores[0])}')
-else:
-    print('\nNão há valores pares nessa sequência')
 
-if len(valores[1]) > 0:
-    print(f'\nÍmpares: {sorted(valores[1])}')
-else:
-    print('\nNão há valores ímpares nessa sequência')
+#[['Fernanda', [7.0, 8.0, 7.5]], ['Maria', [9.0, 8.0, 8.5]]]

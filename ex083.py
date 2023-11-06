@@ -1,35 +1,41 @@
 #! /usr/bin/env python3
 
-''' 
-Faça um programa que leia 5 valores númericos e guarde-os em uma lista
-No final, mostre qual foi o maior e o menor valor digitado
-e as suas respectivas posições na lista
-Note que se tiver valores iguais é necessário mostrar a chave dos dois valores
-
 '''
-from os import system
-lista = [int(input('Digite um valor ')), int(input('Digite outro valor ')), int(input('Digite mais um valor ')), int(input('Digite o penúltimo valor ')), int(input('Digite o último valor '))]
-maior = []
-menor = []
+Crie um programa que leia vários números e colocar em uma list.
+Depois disso, crie duas listras extras que vão conter apenas os
+valores pares e os valores impares digitados, respectivamente
+Ao final, mostre o conteúdo das três listas geradas.
+'''
+valores = []
+impar = []
+par = []
+while True:
+    num = int(input('Digite um número: '))
+    valores.append(num)
 
+    resp = input('Quer digitar mais números? ')
+    
+    while resp != 's' and resp != 'n':
+        print('ERRO: Você digitou uma opção errada')
+        resp = input('Quer digitar mais números? ')
+    if resp == 'n':
+        break
 
-for i, num in enumerate(lista):
-    if num == max(lista):
-        maior.append(i)
-    elif num == min(lista):
-        menor.append(i)
+for valor in valores:
+    if valor % 2 == 0:
+        par.append(valor)
+    else:
+        impar.append(valor)
+print(f'Lista de números digitados: {valores}')
 
-system('clear')
+if len(par) > 0:
+    print(f'Valores pares: {par}')
 
-print(f'Você digitou os valores {lista}')
+else:
+    print('Não há valores pares')
 
-
-print(f'\nO maior valor foi {max(lista)} nas posições ', end="")
-for i in maior:
-    print(f'{i}...', end=" ")
-
-
-print(f'\n\nO menor valor foi {min(lista)} nas posições ', end="")
-for i in menor:
-    print(f'{i}...', end=" ")
-print('\n\n')
+if len(impar) > 0:
+    print(f'Valores impares: {impar}')
+    
+else:
+    print('Não há valores impares')

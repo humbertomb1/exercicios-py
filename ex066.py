@@ -1,18 +1,21 @@
 #! /usr/bin/env python3
-
 '''
-Faça um program que leia um número qualquer e mostre o seu
-fatorial.
-ex:
-5! = 5x4x3x2x1= 120
+Crie um programa que leia vários números inteiros pelo teclado.
+O Programa só vai parar quando o usuário digitar 999, que é 
+a condição de parada. No final, mostre quantos números foram
+digitados e qual foi a soma entre eles (descosiderandoa flag)
 '''
-fatorando = int(input('Digite um número '))
 
-cont = fatorando
-fator = 1
-print(f'Calculando {fatorando}! = ', end="")
-while cont > 0:
-    print(f'{cont} x ' if cont > 1 else f'{cont} = ', end="")
-    fator *= cont
-    cont -= 1
-print(fator)
+
+
+numero = 0
+soma = 0 # criar uma variável para somar todos os números que foram digitados
+total = 0 # criar variável para totalizar números digitados
+while numero != 999: #criar um laço
+
+    numero = int(input('Digite um número. (999 Para para o programa):')) #criar uma variavel para ler input do teclado dentro do laço
+
+    if numero != 999: #criar uma condição para desconsiderar a flag
+        soma += numero
+        total += 1
+print(f'A soma foi {soma}. O total de números digitados foi {total}')

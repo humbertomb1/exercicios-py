@@ -1,15 +1,15 @@
 #! /usr/bin/env python3
-
 '''
-Faça um programa que leia o sexo de uma pessoa, mas só aceite os valores 'M'
-ou 'F'. Caso esteja errado, peça a digitação novamente até ter um valor correto
-''' 
-sexo = input('Digite o sexo da pessoa [F/M]:').upper()
-
-while sexo != 'M' and sexo != 'F':
-   print(f'Você não digitou "F" ou "M". Tente novamente. Letra digitada: {sexo}')
-   sexo = str(input('Digite o sexo da pessoa [F/M]:')).upper()
-
-else:
-    print(f'Você digitou corretamente!')
-    
+Refaça o DESAFIO 051, lendo o primeiro termo e a razão de uma PA,
+mostrando os 10 termos da progreesão usando a estrutura while
+'''
+print('MOSTARANDO OS 10 PRIMEIROS TERMOS DE UMA PA\n')
+n1 = int(input('Digite o primeiro termo: '))
+r = int(input('Digite o razão '))
+termo = n1
+cont = 1
+print('Os 10 primeros termos: ', end="")
+while cont <= 10:
+    termo += r
+    cont += 1
+    print(termo, end=" ")

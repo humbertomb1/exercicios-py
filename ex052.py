@@ -1,9 +1,13 @@
 #! /usr/bin/env python3
 '''
-Crie um programa que mostre na tela todos os números pares que 
-estão no intervalo entre 1 e 50
+Desenvolva um programa que leia o primeiro termo e a razão de uma PA.
+No final, mostre os 10 primeiros termos dessa progressão.
 '''
+n1 = int(input('Digite o primeiro termo da PA: '))
+razao = int(input('Digite a razão da PA '))
+termos = n1 + razao
+print(f'Os 10 primeiros termos dessa PA são: \033[1;33m{n1} {termos}\033[m', end=" ")
 
-for c in range(0, 50):
-    if c % 2 == 0 and c != 0:
-        print(c)
+for c in range (1, 8 + 1):
+    termos += razao
+    print(f'\033[1;33m{termos}\033[m', end=" ")

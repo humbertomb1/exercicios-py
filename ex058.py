@@ -1,30 +1,24 @@
-#! /usr/bin/env python3
 '''
-Crie um program que leia uma frase qualquer e diga se ela é um palindromo,
-desconsiderando espaços.
-ex: APOS A SOPA
-A SACA DA CASA
-A TORRE DA DERROTA
+Convertendo decimal para binário com loop
 '''
+from os import system
 
-frase = input('Digite uma frase para verificarmos se ela é ou não um palíndromo: ')
+decimal = int(input('Digite o decimal: '))
+dividendo = decimal
+lista_resto = []
 
+for c in range(dividendo):
+    resto = dividendo % 2
+    lista_resto.append(resto)
+    quoci = dividendo // 2 # pegando o quociente da divisão
+    dividendo = quoci # quociente passa a ser o dividendo
+    if dividendo == 0: # Parar o loop uma vez que dividendo chegue a 0
+        break
 
-frase = "".join(frase.split()).lower()
-lista = []
-cont = len(frase)
+system('clear')
 
+# invertendo a ordem da lista
+lista_resto.reverse()
+str_bin = "".join(str(bit) for bit in lista_resto)
 
-for c in frase:
-    #Adiciona a cadeia de caractéries de trás para frente
-    lista.append(frase[cont -1])
-    cont += - 1
-
-
-lista = "".join(lista)
-
-# Testa se 'lista e 'frase' são iguais
-if lista == frase:
-    print('É um palíndromo')
-else:
-    print('Não é palíndromo')
+print(f'\033[1;32m{decimal}\033[m em binário é \033[1;33m{str_bin}\033[m')

@@ -1,25 +1,15 @@
 #! /usr/bin/env python3
+
 '''
-Crie um programa que leia o ano de nascimento de sete pessoas.
-No final, mostre quantas pessoas ainda não atingiram a maioridade
-e quantas já são maiores
-'''
-from datetime import date
+Faça um programa que leia o sexo de uma pessoa, mas só aceite os valores 'M'
+ou 'F'. Caso esteja errado, peça a digitação novamente até ter um valor correto
+''' 
+sexo = input('Digite o sexo da pessoa [F/M]:').upper()
 
-data = date.today()
-ano_atual = int(data.strftime("%Y"))
+while sexo != 'M' and sexo != 'F':
+   print(f'Você não digitou "F" ou "M". Tente novamente. Letra digitada: {sexo}')
+   sexo = str(input('Digite o sexo da pessoa [F/M]:')).upper()
 
-total_menor = 0
-total_maior = 0
-
-
-for c in range(1, 8):
-    nasci = int(input(f'Digite o ano de nascimento da {c} pessoa: '))
-    idade = ano_atual - nasci
-    if idade < 18:
-        total_menor += 1
-    else:
-        total_maior += 1
-
-
-print(f'{total_menor} pessoas não atigiram a maior idade\ne {total_maior} já são maiores de idade')
+else:
+    print(f'Você digitou corretamente!')
+    

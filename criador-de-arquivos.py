@@ -5,14 +5,14 @@ Programa para criar vários arquivos
 from pathlib import Path
 import os
 
-pasta = os.chdir("/home/humberto/Documentos/pasta-teste")
+pasta = os.chdir("/media/humberto/midia4/TI/python/exercicios-py/")
 
 arquivos = []
 
 for arquivo in os.listdir():
     if arquivo.startswith('ex') and arquivo.endswith('py'):
         arquivos.append(arquivo)
-'''
+
 for i, arquivo in enumerate(sorted(arquivos)):
     arquiv = Path(arquivo)
     
@@ -20,7 +20,7 @@ for i, arquivo in enumerate(sorted(arquivos)):
         novo = f'ex00{i+ 1}{arquiv.suffix}'
     else:
         novo = f'ex0{i+ 1}{arquiv.suffix}'
-    arquiv.rename(novo)'''
+    arquiv.rename(novo)
 
 for c in sorted(arquivos):
     print(c)

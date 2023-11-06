@@ -1,13 +1,15 @@
 #! /usr/bin/env python3
-'''
-Crie um programa que tenha uma tupla única
-com nomes de produtos e seus respectivos preços,
-na sequencia.
-No final, mostre uma listagem de preços, organizados os dados em forma tabular
-'''
 
-tupla = iter(('Lapis', 2.50, 'Borracha', 3.00, 'Caderno', 15.00, 'Mochila', 50.00,))
- 
-for items in tupla:
-    preço = next(tupla)
-    print(f'{items}.............: {preço:.2f}')
+''' 
+Crie um programa onde o usuário possa digitar cinco valores
+númericos e cadastre-os em uma lista, já na posição correta
+de inserção (sem usar sort).
+No final, mostre a lista ordenada na tela
+'''
+valores = []
+cont = 0
+while cont < 5:
+    num = int(input('Digite um número: '))
+    valores.append(num)
+    if len(valores) >= 2:
+        pass

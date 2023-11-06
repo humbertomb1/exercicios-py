@@ -1,19 +1,16 @@
 #!/usr/bin/env python3
 
-
-''' Escreva um programa que pergunte o salário de um funcionário e calcule o valor do seu aumento.
-
-Para salários superiores a R$1.250,00, calcule um aumento de 10% 
-Para os inferiores ou iguais, o aumento é de 15%
+''' Desenvolva um programa que leia o comprimento de três retas e diga ao usuário se elas podem ou não formar um triângulo
 '''
+print('\033[;30;42m#\033[m'*40)
+print('\033[;30;42m#\033[mCONDIÇÃO DA EXISTÊNCIA DE UM TRIÂNGULO\033[;30;42m#\033[m')
+print('\033[42;30m#\033[m'*40)
+print('\n'*2)
+reta1 = float(input('Digite o primeiro seguimento de reta: '))
+reta2 = float(input('Digite o segundo seguimento de reta: '))
+reta3 = float(input('Digite o terceiro segundo de reta: '))
 
-salario = float(input('Qual é o seu salário? '))
-
-
-if salario > 1250.00:
-	novoSala = salario + (salario * 10) / 100
-	print(f'Você tem um salário superior a R$1250,00,\nportanto sua taxa de aumento foi de 10% e seu novo salário é de R${str(novoSala).replace(".", ",")}')
+if reta1 < reta2 + reta3 and reta2 < reta1 +reta3 and reta3 < reta1 + reta2:
+	print('Esses segmentos podem formar um triângulo')
 else:
-	salario < 1250.00
-	novoSala = salario + (salario * 15 ) / 100
-	print(f'Você tem um salário inferior a R$1250,00,\nportanto sua taxa de aumento foi de 15% e seu novo salário é de R${str(novoSala).replace(".", ",")}')
+	print('Esses segmentos \033[31mnão\033[m podem formar um \033[32mtriângulo\033[m')

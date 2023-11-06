@@ -1,20 +1,19 @@
 #!/usr/bin/env python3
 
-'''Faça um programa que leia três números e mostre qual é o maior e qual é o menor.'''
 
-num = input('Digite três números para verficarmos quem é o maior entre eles: ')
+''' Escreva um programa que pergunte o salário de um funcionário e calcule o valor do seu aumento.
+
+Para salários superiores a R$1.250,00, calcule um aumento de 10% 
+Para os inferiores ou iguais, o aumento é de 15%
+'''
+
+salario = float(input('Qual é o seu salário? '))
 
 
-if num[0] > num[1] and num[0] > num[2]:
-	print(f'Entre {num[0]}, {num[1]} e {num[2]} o maior é {num[0]}')
+if salario > 1250.00:
+	novoSala = salario + (salario * 10) / 100
+	print(f'Você tem um salário superior a R$1250,00,\nportanto sua taxa de aumento foi de 10% e seu novo salário é de R${str(novoSala).replace(".", ",")}')
 else:
-	if num[1] > num[0] and num[1] > num[2]:
-	    print(f'Entre o número {num[0]}, {num[1]} e {num[2]} o maior é {num[1]}')
-	else:
-		if num[2] > num[0] and num[2] > num[1]:
-		   print(f'Entre o número {num[0]}, {num[1]} e {num[2]} o maior é {num[2]}')
-		else:
-			if num[0] and num[1] and num[2] == num[0] or num[1] or num[2]:
-				print('Há dois números iguais um menor que os dois')
-
-			
+	salario < 1250.00
+	novoSala = salario + (salario * 15 ) / 100
+	print(f'Você tem um salário inferior a R$1250,00,\nportanto sua taxa de aumento foi de 15% e seu novo salário é de R${str(novoSala).replace(".", ",")}')

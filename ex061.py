@@ -1,65 +1,87 @@
 #! /usr/bin/env python3
-# Quando uma função que foi criada pelo usuário é chamada, no final dela aparece 'none'
-# Até aqui não estudei funções para entender o porquê
+'''
+Crie um programa que leia dois valores e mostre o menu na tela:
+[1]somar
+[2]multiplicar
+[3]maior
+[4]novos números
+[5]sair do programa
+Seu programa deverá realizar a operação solicitada em cada caso
+'''
 
-'''
-Desenvolva um programa que leia o nome, idade e sexo de 4 pessoas.
-No final do programa mostre:
-- A média de idade do grupo
-- Qual é o homem mais velho
-- Quantas têm menos de 20 anos
-'''
 from os import system
 
-def cabecalho():
-    print('-=-' *10)
-    print('       REGISTRANDO GRUPO')
-    print('-=-' *10)
+opcao = None
 
-mais_velho = 0
-menor_20 = 0
-mais_velho = 0
-nome_velho = ''
-lista_idade = []
+while opcao != 5:
+    valor1 = float(input('Digite o primeiro valor: '))
+    valor2 = float(input('Digite o segundo valor: '))
+    
+    opcao = int(input('''
+  OPÇÕES \n
+[1]Somar
+[2]Multiplicar
+[3]Maior
+[4]Novos Números
+[5]Sair do Programa\n
+Escolha uma opção acima:
+'''))
+    
+    #Valida se o número escolhido está entre as opções
+    if opcao <= 0 or opcao > 5:
+        system('clear')
+        print('Opção inválida. Digite dois valores novamente:')
+        continue
 
+    if opcao == 1:
+        #soma valores
+        result = valor1 + valor2
+        system('clear')
+        print(f'A soma entre {valor1} e {valor2} é {result}\n')
 
-for c in range(1, 5):
-    print(cabecalho())
-    nome = input(f'Digite o nome da {c} pessoa: ').lower().strip()
-    idade = int(input('Digite a idade: '))
-    sexo = input('Digite o sexo: ').lower()
-    lista_idade.append(idade)
+    elif opcao == 2:
+        #multiplica valores
+        result = valor1 * valor2
+        print(f'A multiplicação entre {valor1} e {valor2} é {result}\n')
+
+    elif opcao == 3:
+        #Verifica um valor é maior que o outro ou iguais
+        if valor1 > valor2:
+            result = valor1
+            system('clear')
+            print(f'{valor1} é maior que {valor2}\n')
+
+        elif valor2 > valor1:
+            result = valor2
+            system('clear')
+            print(f'{valor2} é maior que {valor1}\n')
+        else:
+            system('clear')
+            print(f'{valor1} é igual a {valor2}\n')
+
+    #Volta para escolha de valores
+    elif opcao == 4:
+        system('clear')
+        continue
+    
+    #Sai do programa
+    elif opcao == 5:
+        break
+
+    #Sair ou não do programa depois de escolher uma opção
+    voltar_sair = input('Deseja voltar para o menu de opções? [s/n]').lower()
     system('clear')
-    if sexo == 'homem':
-        #Se sexo for homem verficiar se idade é maior que mais velho e coletar nome
-        if idade > mais_velho:
-            mais_velho = idade
-            nome_velho = nome
-    # Testa se 'idade' tem menos de 20 e adiciona mais um a variável 'menor_20'       
-    if idade < 20:
-        menor_20 += 1 
 
-    # Calcula a média de idade do grupo
-media = sum(lista_idade) / len(lista_idade) 
+    #Laço para caso de esolha difente de 's' ou 'n'
+    while voltar_sair != 'n' and voltar_sair != 's':
+        voltar_sair = input('Escolha inválida. Digite "s" voltar para o menu de opções ou "n" para sair do programa: ')
+        system('clear')
 
-def tem_homem():
+    if voltar_sair == 's':
+        opcao = None
+    else:
+       break
 
-    print(f'''
-        - A média de idade do grupo foi {media:.2f}
-        - O homem mais velho é {nome_velho.capitalize()} e ele tem {mais_velho} anos
-        - {menor_20} pessoa(s) tem menos de 20 anos
-    ''')
 
-def sem_homem():
-        print(f'''
-        - A média de idade do grupo foi {media:.2f}
-        - Não há homens no grupo
-        - {menor_20} pessoa(s) tem menos de 20 anos
-    ''')
-        
-if nome_velho == '' and mais_velho == 0:
-     print(cabecalho())
-     print(sem_homem())
-else:
-     print(cabecalho())
-     print(tem_homem())
+system('clear')
+print('Programa encerrado pelo usuário')

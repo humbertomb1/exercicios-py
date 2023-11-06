@@ -1,16 +1,28 @@
-#!/usr/bin/env python3
+#! usr/bin/env python3
 
-''' Desenvolva um programa que leia o comprimento de três retas e diga ao usuário se elas podem ou não formar um triângulo
 '''
-print('\033[;30;42m#\033[m'*40)
-print('\033[;30;42m#\033[mCONDIÇÃO DA EXISTÊNCIA DE UM TRIÂNGULO\033[;30;42m#\033[m')
-print('\033[42;30m#\033[m'*40)
-print('\n'*2)
-reta1 = float(input('Digite o primeiro seguimento de reta: '))
-reta2 = float(input('Digite o segundo seguimento de reta: '))
-reta3 = float(input('Digite o terceiro segundo de reta: '))
+Escreva um programa para aprovar o empréstimo bancário para a compra de uma casa.
+O Programa vai perguntar o valor da casa, 
+o salário do comprador e em quantos anos ele vai pagar.Calcule o valor da prestação mensal, 
+sabendo que ela não pode exceder 30% do salário ou então o empréstimo será negado.
 
-if reta1 < reta2 + reta3 and reta2 < reta1 +reta3 and reta3 < reta1 + reta2:
-	print('Esses segmentos podem formar um triângulo')
+'''
+
+valorCasa = float(input('Qual é o valor da casa? '))
+salario = float(input('Qual é o seu salário? '))
+anosPagar = float(input('Em quantos anos você quer pagar? '))
+
+totalmes = anosPagar*12
+
+prestaçao = valorCasa/totalmes
+
+salario30 = (salario/100) * 30
+
+if prestaçao > salario30:
+    print(f'A prestação mensal ultrapassa 30% do seu salário, seu emprestimo foi \033[1;31mNEGADO.\033[m')
+    print(f'30% de {salario}: \033[1;31m{str(salario30).replace(".", ",")}\033[m ')
+    print(f'Valor da prestação mensal: {prestaçao:.2f}')
 else:
-	print('Esses segmentos \033[31mnão\033[m podem formar um \033[32mtriângulo\033[m')
+    print('Seu emprestimo foi \033[1;32mAPROVADO\033[m')
+    print(f'30% de {salario}: \033[1;32m{str(salario30).replace(".", ".")}\033[m ')
+    print(f'Valor da prestação mensal: {prestaçao:.2f}')
