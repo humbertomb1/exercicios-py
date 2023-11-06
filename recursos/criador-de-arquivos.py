@@ -1,20 +1,39 @@
 #! /usr/bin/env python3
 '''
-Programa para criar vários arquivos
+Programa para criar vários arquivos do tipo python
 '''
 import os
 
-os.chdir("/home/humberto/Documentos/pasta-teste/")
+pasta = os.chdir("/media/humberto/midia4/TI/python/exercicios-py/")
 
-arquivos = sorted(os.listdir())
-contador = 1
-verificador = []
+arquivos = []
 
-for i, arquivo in enumerate(arquivos):
-    if arquivo.endswith('py'):
-        if i < 9:
-            os.rename(arquivo, f'ex00{i+1}.py')
-        else:
-            os.rename(arquivo, f'ex0{i+1}.py')
-        print(arquivo)
-print(len(arquivos))
+for arquivo in sorted(os.listdir(pasta)):
+    if arquivo.startswith('ex') and arquivo.endswith('.py'):
+        arquivos.append(arquivo)
+
+
+quanti = int(input('Quantos arquivos você quer criar? '))
+
+total = len(arquivos)
+
+
+
+for c in range (0, quanti):
+    if total < 99:
+        with open(f'ex0{total +1}.py', 'x') as file:
+            shebang = "#! usr/bin/env python3\n"
+            l1 = "'''"
+            l2 = "\n"
+            l3 = "\n"
+            l4 = "'''"
+            file.writelines([shebang,l1,l2,l3,l4])
+    else:
+        with open(f'ex{total +1}.py', 'x') as file:
+            shebang = "#! usr/bin/env python3"
+            l1 = "'''"
+            l2 = "\n"
+            l3 = "\n"
+            l4 = "'''"
+            file.writelines([shebang,l1,l2,l3,l4])
+    total += 1
