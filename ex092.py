@@ -21,10 +21,12 @@ print('=-'*15)
 print(f'{"---==SORTEIO==---":^29}')
 print('=-'*15)
 print()
+
 for k, v in jogadores.items():
     print(f'   O {k} tirou {v} no dado.')
     sleep(1)
 ranking = sorted(jogadores.items(), key=itemgetter(1), reverse=True)
+
 print()
 print('=-'*15)
 print(f'{"---==RAKING==---":^29}')
