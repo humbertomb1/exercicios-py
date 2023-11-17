@@ -17,14 +17,12 @@ def sorteia(a, b):
     return numeros
 
 
-def soma_par():
-    numeros = sorteia(1, 20)
+def soma_par(lista):
     soma = 0
-    for par in numeros:
-        if par % 2 == 0:
-            soma += par
-    print(soma)
+    for valor in lista:
+        if valor % 2 == 0:
+            soma += valor
+    return soma
 
 
-soma_par()
-
+print(soma_par(sorteia(1, 5)))
