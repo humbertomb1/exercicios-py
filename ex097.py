@@ -9,11 +9,13 @@ mostre a àrea do terreno
 print('Controle de Terrenos')
 print('-'*20)
 
-def area(largura, compri, area):
-    print(f'A área de um terreno de {largura} x {compri} é de {area}m²')
 
-largura = float(input('LARGURA (m): '))
-compri = float(input('COMPRIMENTO (m): '))
-resul = largura * compri
+def area(larg, compri):
+    resul = larg * compri
+    return print(f'A área de um terreno de {larg} x {compri} é de {resul}m²')
 
-area(largura, compri, resul)
+
+l = float(input('LARGURA (m): '))
+c = float(input('COMPRIMENTO (m): '))
+
+area(l, c)

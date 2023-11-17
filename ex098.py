@@ -8,11 +8,14 @@ ex:
   Olá, Mundo!
 --------------
 '''
+
+
 def escreva(txt):
-    tam = len(txt) +2
+    tam = len(txt) + 4
     print('-' * tam)
-    print(f'{txt:^{tam}}')
+    print(f'  {txt}')
     print('-' * tam)
+
 
 texto = input('Digite um texto: ')
 

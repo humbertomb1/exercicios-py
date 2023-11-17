@@ -8,7 +8,7 @@ Seu programa tem que realizar três contagens através da função craida:
 a) De 1 até 10, de 1 em 1
 b) de 10 até 0, de 2 em 2
 c) uma contagem personalizada. 
-O usuário que vai definir o inicio, fim e passo
+O usuário que vai definir o inicío, fim e passo
 '''
 
 from time import sleep
@@ -26,8 +26,9 @@ def contador(inicio, fim, passo):
     print()
     while contagem <= fim:
         print(contagem, end=" ")
-        contagem += passo
         sleep(0.5)
+        contagem += passo
+        
 
     print('\n')
     barra()
