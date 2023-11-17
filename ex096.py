@@ -48,11 +48,7 @@ for k, item in enumerate(database):
 print()
 while True:
     cod = int(input('Mostrar dados de qual jogador? (999 interrompe)'))
-    print(len(database) -1)
-    if cod > len(database) -1:
-        print('Código invalido!')
-        continue
-    elif cod == 999:
+    if cod == 999:
         break
     print(f'Levantamento do jogador {database[cod]["nome"]}')
     print()

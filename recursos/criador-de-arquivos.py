@@ -23,7 +23,7 @@ for c in range (0, quanti):
     if total < 99:
         with open(f'ex0{total +1}.py', 'x') as file:
             shebang = "#! usr/bin/env python3\n"
-            l1 = "'''"
+            l1 = "\n'''"
             l2 = "\n"
             l3 = "\n"
             l4 = "'''"
@@ -31,7 +31,7 @@ for c in range (0, quanti):
     else:
         with open(f'ex{total +1}.py', 'x') as file:
             shebang = "#! usr/bin/env python3"
-            l1 = "'''"
+            l1 = "\n'''"
             l2 = "\n"
             l3 = "\n"
             l4 = "'''"
